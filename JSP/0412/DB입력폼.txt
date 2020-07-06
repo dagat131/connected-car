@@ -1,0 +1,186 @@
+#데이터베이스 처음에 만들기
+
+MariaDB [sihum]> create database sihum;
+MariaDB [sihum]> grant all privileges on sihum.* to sihum@localhost identified by '1234';
+MariaDB [sihum]> flush privileges;
+MariaDB [sihum]> exit;
+MariaDB [sihum]> use sihum;
+
+=========================================
+***데이터베이스에 입력할 때의 폼
+
+반장선거
+
+mysql -u exam -p
+password : 1234
+use exam;
+show tables;
+
+create table boss (
+no int not null auto_increment,
+chief varchar(10) not null,
+chief2 varchar(10) not null,
+chief3 varchar(10) not null,
+primary key (no)
+);
+
+SQL>show tables;
+SQL>select * from boss;
+
+======================================
+반장선거2
+
+테이블명 : boss_sub
+create table boss_sub2 (
+no int not null auto_increment,
+chief varchar(10) not null,
+chief2 varchar(10) not null,
+chief3 varchar(10) not null,
+chief4 varchar(10) not null,
+chief5 varchar(10) not null,
+primary key (no)
+);
+
+결과화면 : select * from boss_sub2;
+
+=========================================
+
+testSJ.jsp  --> 입력
+testSJProc.jsp  --> 처리
+testSJList.jsp  --> 안되면 리스트로 다시 돌아가라
+
+시험성적
+
+ C\> mysql -u exam -p
+enterPassword : 1234
+use exam;
+
+create table sungjuk( 
+no int not null auto_increment, 
+name varchar(50) not null, 
+kor int not null, 
+eng int not null, 
+mat int not null, 
+unique (no)
+);
+
+desc sungjuk;
+select * from sungjuk;
+
+SQL>select * from sungjuk;
+
+
+##
+pstmt.setInt
+
+
+=======================================
+##쇼핑몰 데이터베이스
+
+mysql -u exam -p
+use exam;
+
+create table product (
+no int not null auto_increment,   
+cate varchar(50) not null,  
+pname varchar(50) not null, 
+price int not null, 
+company varchar(50) not null, 
+wdate datetime default now(),
+primary key(no)  
+);
+
+
+========================================
+##5지선다 문제
+
+mysql -u exam -p
+use exam;
+show sihum;
+
+create table sihum(
+no int not null auto_increment, 
+Q1 varchar(50) not null, 
+Q2 varchar(50) not null,
+Q3 varchar(50) not null,
+Q4 varchar(50) not null,
+Q5 varchar(50) not null,
+A1 varchar(50) not null,
+A2 varchar(50) not null,  
+A3 varchar(50) not null, 
+A4 varchar(50) not null, 
+A5 varchar(50) not null,
+jumsu int not null, 
+wdate datetime default now(),
+primary key(no)
+);
+
+값 가져오기 : select * from sihum;
+데이터베이스 삭제 : drop tables(테이블명) sihum(지울데이터베이스명);
+
+
+================================
+1~2 번문제
+mysql -u sihum -p
+use sihum;
+
+create table member(
+id varchar(50) not null, 
+passwd varchar(50) not null,
+name varchar(50) not null,
+phone varchar(50) not null,
+job varchar(50) not null,
+wdate datetime default now(),
+primary key(id)
+);
+
+=================================
+3~4 번문제
+
+create table product(
+no int not null auto_increment, 
+cate varchar(50) not null,
+pname varchar(50) not null,
+price int not null,
+wdate datetime default now(),
+primary key(no)
+);
+
+=================================
+5~6 번문제
+
+create table sungjuk(
+no int not null auto_increment, 
+name varchar(50) not null,
+sname varchar(50) not null,
+mun_1 varchar(50) not null,
+mun_2 varchar(50) not null,
+mun_3 varchar(50) not null,
+mun_4 varchar(50) not null,
+mun_5 varchar(50) not null,
+jumsu int not null,
+wdate datetime default now(),
+primary key(no)
+);
+
+===================================
+
+mysql -u root -p
+create database site100;
+grant all privileges on site100. * to site100@localhost identified by '1234';
+flush privileges;
+show databases;
+exit
+
+mysql -u site100 -p
+use site100;
+show tables;
+create table member(
+id varchar(50) not null,
+passwd varchar(50) not null,
+name varchar(50) not null,
+phone varchar(50) not null,
+primary key (id)
+);
+
+
